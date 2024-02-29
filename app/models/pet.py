@@ -3,8 +3,13 @@ from app.config.mysqlconnector import MySQLConnection
 from app.models.user import User
 from app.models.base_class import BaseClass
 
+# comment
 
 class Pet(BaseClass):
+
+    """
+    
+    """
 
     json_fields = ['id', 'name', 'species', 'tricks', 'happiness', 'energy', 'likes_count']
 
@@ -82,7 +87,6 @@ class Pet(BaseClass):
         """
 
         results = MySQLConnection('z_demo').query_db(query)
-
         all_pets = []
         for row in results:
             pet = cls(row)
