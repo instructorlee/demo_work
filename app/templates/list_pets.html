@@ -1,0 +1,36 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Species</th>
+            <th>Tricks</th>
+            <th>Happiness</th>
+            <th>Energy</th>
+            <th>Likes</th>
+            <th>Date Added</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+            <tr>
+                <td>{{ pet.name }}</td>
+                <td>{{ pet.owner.first_name }}</td>
+                <td>{{ pet.species }}</td>
+                <td>{{ pet.tricks }}</td>
+                <td>{{ pet.happiness }}</td>
+                <td>{{ pet.energy }}</td>
+                <td>{{ pet.likes_count }}</td>
+                <td>{{ pet.created_at.strftime('%m/%d/%y, %H:%M:%S') }}</td>
+                <td>
+                    <a href="/pet/{{ pet.id }}" class='btn btn-sm btn-success'>View</a>
+                    {% if session['user_id'] == pet.owner.id %}
+                        <a href="/pet/update/{{ pet.id }}" class='btn btn-sm btn-info'>Edit</a>
+                        <a href="/pet/delete/{{ pet.id }}" class='btn btn-sm btn-warning'>Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

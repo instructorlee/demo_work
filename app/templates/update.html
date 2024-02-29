@@ -1,0 +1,37 @@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="fluid-container">
+        <div class="row justify-content-center">
+            <div id="dashboard__header" class="col-12 ">
+                    Update {{ pet.name }}!
+            </div>
+            <div class="col-12">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="text-danger">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+            </div>
+            <div class="col-5 mt-2">
+                <form action="/pet/update" method="POST">
+
+                    <input type="hidden" name="id" value="{{pet.id}}"/>
+
+                    <div>Name: <input name="name" value="{{ pet.name }}"/> </div>
+                    <div class="mt-1">Species: <input name="species" value="{{ pet.species }}"/> </div>
+                    <div class="mt-1">Tricks: <input name="tricks" value="{{ pet.tricks }}"/> </div>
+                    <div class="mt-1">Happiness: <input name="happiness" type='number' min=0 max=100  value="{{ pet.happiness }}"/> </div>
+                    <div class="mt-1">Energy: <input name="energy" type='number'  value="{{ pet.energy }}"/> </div>
+
+                    <input class="btn btn-sm btn-success" type="submit"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

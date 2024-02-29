@@ -1,0 +1,18 @@
+
+{% extends "base_template.html" %}
+
+{% block title %}View {{ user.first_name }}'s Pets{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div id="dashboard__header" class="col-12 ">
+            {% if user.pets %}
+                {% with pets=user.pets %}
+                    {% include "list_pets.html" %}
+                {% endwith %}
+            {% else %}
+                <h2>No Pets</h2>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends "base_template.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div id="dashboard__header" class="col-12 ">
+                Welcome to DigiPets {{ user.first_name }}!
+        <div>
+        <div class="col-12">
+            {% include "list_pets.html" %}
+        </div>
+        <div class='col-12 text-center'>
+            <a href="pet/add">Add New Pet</a>
+        </div>
+    </div>
+{% endblock %}

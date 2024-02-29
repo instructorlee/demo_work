@@ -1,0 +1,68 @@
+
+{% extends "base_template.html" %}
+
+{% block title %}Add A Pet{% endblock %}
+
+{% block content %}
+        <div class="row justify-content-center">
+            <div id="dashboard__header" class="col-12 ">
+                    Add Pet!
+            </div>
+            <div class="col-7 mt-2">
+                <form class="row" action="/pet/add" enctype="multipart/form-data" method="POST">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-3">
+                                Name:
+                            </div>
+                            <div class="col-3">
+                                <input name="name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                Species:
+                            </div>
+                            <div class="col-3">
+                                <input name="species"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                Tricks:
+                            </div>
+                            <div class="col-3">
+                                <input name="tricks"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                Happiness:
+                            </div>
+                            <div class="col-3">
+                                <input name="happiness"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                Energy:
+                            </div>
+                            <div class="col-3">
+                                <input name="energy"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                Image:
+                            </div>
+                            <div class="col-3">
+                                <input name="pet_image" type="file"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-sm btn-danger text-success" type="submit">Add Pet</input>
+                </form>
+            </div>
+        </div>
+{% endblock %}

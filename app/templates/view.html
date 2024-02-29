@@ -1,0 +1,33 @@
+{% extends "base_template.html"%}
+
+{% block title %}View {{ pet.name }}!{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div id="dashboard__header" class="col-12 ">
+                View {{ pet.name }}!
+        </div>
+        <div class="col-5 mt-2">
+            Name: {{ pet.name }}
+            Species: {{ pet.species }}
+            Tricks: {{ pet.tricks }}
+            Happiness: {{ pet.happiness }}
+            Energy: {{ pet.energy }}
+            <img src="/pet/image/{{ pet.id }}"/>
+        </div>
+        <div class='col-12'>
+            <ul>
+                {% for liker in pet.likers %}
+                    <li>{{ liker.first_name }} {{ liker.last_name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class='col-12'>
+            {% if pet.is_liker(session['user_id']) %}
+                <a href="/pet/unlike/{{pet.id}}">Unlike</a>
+            {% else %}
+                <a href="/pet/like/{{pet.id}}">like</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
