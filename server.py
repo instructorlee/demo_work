@@ -6,5 +6,5 @@ from app.api_controllers import pets_api
 if __name__=="__main__":
     app.run(debug=True)
 
-# think you'er so smart?
+# think you're so smart?
     
